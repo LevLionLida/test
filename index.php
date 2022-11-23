@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row justify-content-center ">
 
-        <div class="col col-lg-6 border ">
+        <div class="col col-md-5 border ">
             <p class=" mt-3 h5 title-add-post">Фильтр</p>
             <form id="form_data" action="handler.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
@@ -58,6 +58,11 @@
             </form>
         </div>
 
+        <div class="col col-md-5 border">
+            <p class=" mt-3 h5 title-add-post">Результат</p>
+            <pre id="result_json"></pre>
+        </div>
+
     </div>
 
 </div>
@@ -79,6 +84,8 @@
             },
             success: function(data) {
                 console.log(data);
+
+                $('#result_json').html(JSON.stringify(data, undefined, 2));
             },
             dataType: 'json'
         });
